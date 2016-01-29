@@ -5,6 +5,12 @@ using std::endl;
 using std::cin;
 int factorial(int x);
 int elevado(double x,int y);
+double recta(double x1,double x2,double y1,double y2);
+double alturaa(double a,double b,double c);
+double alturab(double a,double b,double c);
+double alturac(double a,double b,double c);
+double semi(double a,double b,double c);
+double area(double base,double h1,double h2);
 
 int main(int argc, char*argv[]){
 	int opcion;
@@ -47,7 +53,6 @@ int main(int argc, char*argv[]){
                 cin>>y4;
 		int validadorx=0,validadory=0;
 		if((x1==x2)||(x1==x3)||(x1==x4)){
-			cout<<"prueba";
 			validadorx+=1;
 		}	
 		if((x2==x1)||(x2==x3)||(x2==x4)){
@@ -72,7 +77,6 @@ int main(int argc, char*argv[]){
                         validadory+=1;
                 }
 		if((validadorx<=2)&&(validadory<=2)){
-			cout<<"hola";
 			int validador=0;
 			if(((x1==x2)&&(y1==y2))||((x1==x3)&&(y1==y3))||((x1==x4)&&(y1==y4))){
 				validador=1;
@@ -87,18 +91,17 @@ int main(int argc, char*argv[]){
                                 validador=1;
                         }
 			if(validador==0){
-				cout<<"hola2";
 			//aqui comienza
 			}else{
-				cout<<"Ingreso puntos repetidos";
+				cout<<"Ingreso puntos repetidos"<<endl;
 			}
 
 		}else{
-			cout<<"Los puntos que ingreso no forman un trapezoide";
+			cout<<"Los puntos que ingreso no forman un trapezoide"<<endl;
 		}
 
 	}else{
-		cout<<"Opcion no valida";
+		cout<<"Opcion no valida"<<endl;
 	}		
 }	
 
@@ -110,4 +113,42 @@ int factorial(int x){
 	return acumulador;
 }
 
+double recta(double x1,double x2,double y1,double y2){
+	double valor;
+	valor= pow((x2-x1),2)+pow((y2-y1),2);
+	valor= sqrt(valor);
+	return valor;	
+}
+
+double semi(double a,double b,double c){
+	double valor;
+	valor= (a+b+c)/2.0;
+}
+
+double alturaa(double a,double b,double c){
+	double valor;
+	double s=semi(a,b,c);
+	valor= ((2.0)/a)*(sqrt((s*(s-a)*(s-b)*(s-c))));
+	return valor;
+}
+
+double alturab(double a,double b,double c){
+        double valor;
+        double s=semi(a,b,c);
+        valor= ((2.0)/b)*(sqrt((s*(s-a)*(s-b)*(s-c))));
+        return valor;
+}
+
+double alturac(double a,double b,double c){
+        double valor;
+        double s=semi(a,b,c);
+        valor= ((2.0)/c)*(sqrt((s*(s-a)*(s-b)*(s-c))));
+        return valor;
+}
+
+double area(double base,double h1,double h2){
+	double valor;
+	valor=((base*h1)/2.0)+((base*h2)/2.0);
+	return valor;
+}
 
